@@ -22,7 +22,7 @@ class MainWindow:
         self.__math_op_options = ['+', '-']
         self.__math_op_value = tk.StringVar(self.__frame)
         self.__math_op = tk.OptionMenu(self.__frame, self.__math_op_value, *self.__math_op_options)
-        self.__math_op.grid(row=0, column=2, padx=10)
+        self.__math_op.grid(row=0, column=2, padx=15)
 
         # Y Variable
         self.__y_value = tk.StringVar(self.__frame)
@@ -59,8 +59,8 @@ class MainWindow:
         # Math Operation
         self.__math_op_options2 = ['+', '-']
         self.__math_op_value2 = tk.StringVar(self.__frame2)
-        self.__math_op2 = tk.OptionMenu(self.__frame2, self.__math_op_value, *self.__math_op_options)
-        self.__math_op2.grid(row=0, column=2, padx=10)
+        self.__math_op2 = tk.OptionMenu(self.__frame2, self.__math_op_value2, *self.__math_op_options2)
+        self.__math_op2.grid(row=0, column=2, padx=15)
 
         # Y Variable
         self.__y_value2 = tk.StringVar(self.__frame2)
