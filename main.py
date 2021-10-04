@@ -98,7 +98,26 @@ class MainWindow:
         self.__root.mainloop()
 
     def jumlah(self):
-        pass
+        x1 = self.__x_value.get()
+        y1 = self.__y_value.get()
+        r1 = self.__value_inp.get()
+
+        x2 = self.__x_value2.get()
+        y2 = self.__y_label2.get()
+        r2 = self.__value_inp2.get()
+
+        ypr1 = y1 * x2
+        rpr1 = r1 * x2
+
+        ypr2 = y2 * x1
+        rpr2 = r2 * x1
+
+        y = ypr1 - ypr2
+        r = rpr1 - rpr2
+
+        y_value = r / y
+        x_value = int
+
 
 
 hai = MainWindow()
