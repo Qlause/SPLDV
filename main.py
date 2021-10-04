@@ -12,8 +12,8 @@ class MainWindow:
         self.__frame.pack()
 
         # X Variable
-        self.__x_value = tk.StringVar(self.__frame)
-        self.__x_entry = tk.Entry(self.__frame, width=5)
+        self.__x_value = tk.IntVar(self.__frame)
+        self.__x_entry = tk.Entry(self.__frame, textvariable=self.__x_value, width=5)
         self.__x_entry.grid(row=0, column=0)
         self.__x_label = tk.Label(self.__frame, text="x")
         self.__x_label.grid(row=0, column=1)
@@ -25,8 +25,8 @@ class MainWindow:
         self.__math_op.grid(row=0, column=2, padx=15)
 
         # Y Variable
-        self.__y_value = tk.StringVar(self.__frame)
-        self.__y_entry = tk.Entry(self.__frame, width=5)
+        self.__y_value = tk.IntVar(self.__frame)
+        self.__y_entry = tk.Entry(self.__frame, textvariable=self.__y_value, width=5)
         self.__y_entry.grid(row=0, column=3)
         self.__y_label = tk.Label(self.__frame, text="y")
         self.__y_label.grid(row=0, column=4)
@@ -35,7 +35,7 @@ class MainWindow:
         self.__y_label = tk.Label(self.__frame, text="=").grid(row=0, column=5)
 
         # Value Entry
-        self.__value_inp = tk.StringVar(self.__frame)
+        self.__value_inp = tk.IntVar(self.__frame)
         self.__value = tk.Entry(self.__frame, textvariable=self.__value_inp, width=5)
         self.__value.grid(row=0, column=6)
 
@@ -50,8 +50,8 @@ class MainWindow:
         self.__frame2.pack()
 
         # X Variable
-        self.__x_value2 = tk.StringVar(self.__frame2)
-        self.__x_entry2 = tk.Entry(self.__frame2, width=5)
+        self.__x_value2 = tk.IntVar(self.__frame2)
+        self.__x_entry2 = tk.Entry(self.__frame2, textvariable=self.__x_value2, width=5)
         self.__x_entry2.grid(row=0, column=0)
         self.__x_label2 = tk.Label(self.__frame2, text="x")
         self.__x_label2.grid(row=0, column=1)
@@ -63,8 +63,8 @@ class MainWindow:
         self.__math_op2.grid(row=0, column=2, padx=15)
 
         # Y Variable
-        self.__y_value2 = tk.StringVar(self.__frame2)
-        self.__y_entry2 = tk.Entry(self.__frame2, width=5)
+        self.__y_value2 = tk.IntVar(self.__frame2)
+        self.__y_entry2 = tk.Entry(self.__frame2, textvariable=self.__y_value2, width=5)
         self.__y_entry2.grid(row=0, column=3)
         self.__y_label2 = tk.Label(self.__frame2, text="y")
         self.__y_label2.grid(row=0, column=4)
@@ -73,7 +73,7 @@ class MainWindow:
         self.__y_label2 = tk.Label(self.__frame2, text="=").grid(row=0, column=5)
 
         # Entry Value
-        self.__value_inp2 = tk.StringVar(self.__frame2)
+        self.__value_inp2 = tk.IntVar(self.__frame2)
         self.__value2 = tk.Entry(self.__frame2, textvariable=self.__value_inp2, width=5)
         self.__value2.grid(row=0, column=6)
 
@@ -88,22 +88,25 @@ class MainWindow:
         self.__cal.grid(row=1, columnspan=5, pady=10)
 
         # X Value
-        self.__y_label = tk.Label(self.__frame2, text="X = null")
-        self.__y_label.grid(row=2, column=0, columnspan=2)
+        self.__x_label = tk.Label(self.__frame2, text=f"X = null")
+        self.__x_label.grid(row=2, column=0, columnspan=2)
 
         # Y Value
-        self.__y_label = tk.Label(self.__frame2, text="Y = null")
+        self.__y_label = tk.Label(self.__frame2, text=f"Y = null")
         self.__y_label.grid(row=2, column=3, columnspan=2)
 
         self.__root.mainloop()
 
     def jumlah(self):
+
+        # Search For Y value elimination
+
         x1 = self.__x_value.get()
         y1 = self.__y_value.get()
         r1 = self.__value_inp.get()
 
         x2 = self.__x_value2.get()
-        y2 = self.__y_label2.get()
+        y2 = self.__y_value2.get()
         r2 = self.__value_inp2.get()
 
         ypr1 = y1 * x2
@@ -116,8 +119,17 @@ class MainWindow:
         r = rpr1 - rpr2
 
         y_value = r / y
-        x_value = int
 
+        # Search for  X distribution
+        yfx = y1 * y_value
+        xfy = x1 + yfx
+
+        x_value = r1 / xfy
+
+        self.__y_label.config(text=f'Y = {y_value}')
+        self.__x_label.config(text=f'X = {x_value}')
+        print(y_value, "y")
+        print(x_value, "x")
 
 
 hai = MainWindow()
